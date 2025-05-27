@@ -8,9 +8,7 @@ import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
 
-/**
- * Classe que representa a experiência profissional de um estudante.
- */
+
 @Embeddable
 @Data
 @NoArgsConstructor

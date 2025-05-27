@@ -45,10 +45,8 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({
       console.log("[AuthContext] Iniciando login", credentials);
       const response = await authService.login(credentials);
 
-      // Atualiza o estado do usuário com a resposta do servidor
       setUser(response);
 
-      // Retorna a resposta para que o componente de login possa usá-la
       return response;
     } catch (err) {
       setError("Credenciais inválidas. Por favor, tente novamente.");
@@ -56,7 +54,7 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({
       throw err;
     } finally {
       setLoading(false);
-      // Use setTimeout para garantir que estamos obtendo o estado mais recente
+
       setTimeout(() => {
         const currentUser = authService.getCurrentUser();
         console.log("[AuthContext] Estado após login:", {

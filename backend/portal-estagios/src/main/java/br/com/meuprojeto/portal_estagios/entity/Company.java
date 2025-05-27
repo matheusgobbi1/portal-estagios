@@ -8,9 +8,7 @@ import lombok.EqualsAndHashCode;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Entidade que representa uma empresa no sistema.
- */
+
 @Entity
 @Table(name = "companies")
 @DiscriminatorValue("COMPANY")

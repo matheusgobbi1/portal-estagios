@@ -8,14 +8,13 @@ const Areas: React.FC = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
-  // Estado para nova área
+
   const [novaArea, setNovaArea] = useState("");
 
-  // Estado para edição
+
   const [editando, setEditando] = useState<number | null>(null);
   const [nomeEditado, setNomeEditado] = useState("");
 
-  // Estado para confirmação de remoção
   const [areaParaRemover, setAreaParaRemover] = useState<number | null>(null);
 
   // Carregar áreas
@@ -35,7 +34,7 @@ const Areas: React.FC = () => {
     carregarAreas();
   }, []);
 
-  // Adicionar nova área
+
   const adicionarArea = async (e: React.FormEvent) => {
     e.preventDefault();
 
@@ -55,19 +54,18 @@ const Areas: React.FC = () => {
     }
   };
 
-  // Iniciar edição
+
   const iniciarEdicao = (area: Area) => {
     setEditando(area.id);
     setNomeEditado(area.nome);
   };
 
-  // Cancelar edição
   const cancelarEdicao = () => {
     setEditando(null);
     setNomeEditado("");
   };
 
-  // Salvar edição
+
   const salvarEdicao = async (id: number) => {
     if (!nomeEditado.trim()) {
       alert("O nome da área não pode estar vazio.");
@@ -86,17 +84,17 @@ const Areas: React.FC = () => {
     }
   };
 
-  // Iniciar processo de remoção
+  
   const iniciarRemocao = (id: number) => {
     setAreaParaRemover(id);
   };
 
-  // Cancelar remoção
+
   const cancelarRemocao = () => {
     setAreaParaRemover(null);
   };
 
-  // Confirmar e executar remoção
+
   const confirmarRemocao = async () => {
     if (areaParaRemover === null) return;
 

@@ -5,9 +5,7 @@ import lombok.Data;
 
 import java.time.LocalDateTime;
 
-/**
- * Entidade que representa a inscrição de um estudante em uma vaga de estágio.
- */
+
 @Entity
 @Table(name = "applications")
 @Data
@@ -37,9 +35,6 @@ public class Application {
         this.dataInscricao = LocalDateTime.now();
     }
 
-    /**
-     * Enum que representa os possíveis status de uma inscrição
-     */
     public enum Status {
         PENDENTE,
         EM_ANALISE,

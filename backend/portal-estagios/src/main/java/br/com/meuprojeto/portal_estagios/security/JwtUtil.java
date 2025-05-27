@@ -15,18 +15,15 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Function;
 
-/**
- * Utilitário para manipulação de tokens JWT.
- */
+
 @Component
 public class JwtUtil {
 
-    // Por padrão, usamos uma chave forte. Em ambiente de produção, esta chave deve
-    // ser segura e externa.
+ 
     @Value("${jwt.secret:12345678901234567890123456789012}")
     private String secret;
 
-    @Value("${jwt.expiration:86400000}") // 24 horas por padrão
+    @Value("${jwt.expiration:86400000}") 
     private long expiration;
 
     /**

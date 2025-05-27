@@ -11,7 +11,6 @@ const buscarPorId = async (id: number): Promise<Area> => {
   return response.data;
 };
 
-// Operações CRUD - somente para administradores
 const criar = async (area: Omit<Area, "id">): Promise<Area> => {
   const response = await api.post<Area>("/admin/areas", area);
   return response.data;

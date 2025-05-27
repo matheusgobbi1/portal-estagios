@@ -5,7 +5,6 @@ const login = async (credentials: AuthRequest): Promise<AuthResponse> => {
   const response = await api.post<AuthResponse>("/auth/login", credentials);
   const { token, ...userData } = response.data;
 
-  // Armazenar token e dados do usuário no localStorage
   localStorage.setItem("token", token);
   localStorage.setItem("user", JSON.stringify(userData));
 

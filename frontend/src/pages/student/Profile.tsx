@@ -14,7 +14,6 @@ const StudentProfile: React.FC = () => {
   const [areas, setAreas] = useState<Area[]>([]);
   const [activeTab, setActiveTab] = useState("pessoal");
 
-  // Função para validar campos obrigatórios
   const validarCamposObrigatorios = (student: Student): boolean => {
     if (!student.cpf || student.cpf.trim() === "") {
       setError("O campo CPF é obrigatório");
@@ -31,27 +30,22 @@ const StudentProfile: React.FC = () => {
     return true;
   };
 
-  // Estado para os dados do estudante
   const [student, setStudent] = useState<Student | null>(null);
 
-  // Carregar dados do estudante
   const loadStudentData = useCallback(async () => {
     try {
       setLoading(true);
       const userData = JSON.parse(localStorage.getItem("user") || "{}");
 
-      // Se já temos os dados completos no localStorage, use-os
       if (userData.id && userData.nome && userData.email) {
         setStudent(userData);
         setLoading(false);
         return;
       }
 
-      // Caso contrário, busque do servidor
       const response = await api.get(`/students/${userData.id}`);
       setStudent(response.data);
 
-      // Atualize o localStorage com os dados completos
       localStorage.setItem("user", JSON.stringify(response.data));
     } catch (err) {
       console.error("Erro ao carregar dados:", err);
@@ -65,7 +59,6 @@ const StudentProfile: React.FC = () => {
     loadStudentData();
   }, [loadStudentData]);
 
-  // Buscar áreas de atuação
   useEffect(() => {
     const fetchAreas = async () => {
       try {
@@ -82,7 +75,6 @@ const StudentProfile: React.FC = () => {
     fetchAreas();
   }, []);
 
-  // Manipuladores para campos pessoais
   const handlePersonalChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
@@ -92,7 +84,6 @@ const StudentProfile: React.FC = () => {
     }
   };
 
-  // Manipulador para áreas de interesse
   const handleAreaChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     if (!student) return;
 
@@ -107,7 +98,6 @@ const StudentProfile: React.FC = () => {
     setStudent({ ...student, areasInteresse: selectedAreas });
   };
 
-  // Funções para manipular arrays de educação, experiência e habilidades
   const addEducation = () => {
     if (!student) return;
     const newEducation: Education = {
@@ -156,7 +146,6 @@ const StudentProfile: React.FC = () => {
     });
   };
 
-  // Funções similares para experiência profissional
   const addExperience = () => {
     if (!student) return;
     const newExperience: Experience = {
@@ -204,7 +193,6 @@ const StudentProfile: React.FC = () => {
     });
   };
 
-  // Funções para habilidades
   const addSkill = () => {
     if (!student) return;
     const newSkill: Skill = {
@@ -246,13 +234,11 @@ const StudentProfile: React.FC = () => {
     });
   };
 
-  // Salvar todas as alterações
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
     if (!student) return;
 
-    // Validar campos obrigatórios
     if (!validarCamposObrigatorios(student)) {
       setTimeout(() => setError(null), 3000);
       return;
@@ -262,7 +248,6 @@ const StudentProfile: React.FC = () => {
       setSaving(true);
       await api.put(`/students/${student.id}`, student);
 
-      // Atualizar o localStorage com os dados atualizados
       localStorage.setItem("user", JSON.stringify(student));
 
       setSuccess("Perfil atualizado com sucesso!");
@@ -347,7 +332,6 @@ const StudentProfile: React.FC = () => {
       </div>
 
       <form onSubmit={handleSubmit} style={styles.form}>
-        {/* Aba de Dados Pessoais */}
         {activeTab === "pessoal" && student && (
           <div style={styles.tabContent}>
             <h2 style={styles.sectionTitle}>Informações Pessoais</h2>
@@ -509,7 +493,6 @@ const StudentProfile: React.FC = () => {
           </div>
         )}
 
-        {/* Aba de Formação Acadêmica */}
         {activeTab === "educacao" && student && (
           <div style={styles.tabContent}>
             <h2 style={styles.sectionTitle}>Formação Acadêmica</h2>
@@ -646,7 +629,6 @@ const StudentProfile: React.FC = () => {
           </div>
         )}
 
-        {/* Aba de Experiência Profissional */}
         {activeTab === "experiencia" && student && (
           <div style={styles.tabContent}>
             <h2 style={styles.sectionTitle}>Experiência Profissional</h2>
@@ -766,7 +748,6 @@ const StudentProfile: React.FC = () => {
           </div>
         )}
 
-        {/* Aba de Habilidades */}
         {activeTab === "habilidades" && student && (
           <div style={styles.tabContent}>
             <h2 style={styles.sectionTitle}>Habilidades</h2>

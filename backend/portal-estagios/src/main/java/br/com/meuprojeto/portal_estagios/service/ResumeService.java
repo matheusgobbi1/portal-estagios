@@ -84,7 +84,7 @@ public class ResumeService {
             });
         }
 
-        // Experiência Profissional
+    
         if (student.getExperiencia() != null && !student.getExperiencia().isEmpty()) {
             addSection(document, "Experiência Profissional");
             student.getExperiencia().forEach(experience -> {
@@ -111,14 +111,13 @@ public class ResumeService {
             });
         }
 
-        // Habilidades
         if (student.getHabilidades() != null && !student.getHabilidades().isEmpty()) {
             addSection(document, "Habilidades");
 
             PdfPTable table = new PdfPTable(3);
             table.setWidthPercentage(100);
 
-            // Cabeçalho da tabela
+          
             PdfPCell headerCell1 = new PdfPCell(new Phrase("Habilidade", BOLD_FONT));
             PdfPCell headerCell2 = new PdfPCell(new Phrase("Nível", BOLD_FONT));
             PdfPCell headerCell3 = new PdfPCell(new Phrase("Categoria", BOLD_FONT));
@@ -131,7 +130,7 @@ public class ResumeService {
             table.addCell(headerCell2);
             table.addCell(headerCell3);
 
-            // Adicionar habilidades
+        
             student.getHabilidades().forEach(skill -> {
                 table.addCell(new Phrase(skill.getNome(), NORMAL_FONT));
                 table.addCell(new Phrase(formatSkillLevel(skill.getNivel()), NORMAL_FONT));
@@ -142,13 +141,12 @@ public class ResumeService {
             document.add(Chunk.NEWLINE);
         }
 
-        // Áreas de Interesse
+
         if (student.getAreasInteresse() != null && !student.getAreasInteresse().isEmpty()) {
             addSection(document, "Áreas de Interesse");
             Paragraph areas = new Paragraph();
             student.getAreasInteresse().forEach(area -> areas.add(new Chunk(area.getNome() + ", ", NORMAL_FONT)));
 
-            // Remove a última vírgula
             String areasText = areas.getContent().toString();
             if (areasText.endsWith(", ")) {
                 areasText = areasText.substring(0, areasText.length() - 2);
@@ -158,7 +156,7 @@ public class ResumeService {
             document.add(Chunk.NEWLINE);
         }
 
-        // Links
+  
         addLinks(document, student);
 
         document.close();
@@ -166,7 +164,7 @@ public class ResumeService {
     }
 
     private void addPersonalInfo(Document document, Student student) throws DocumentException {
-        // Nome do estudante como título
+        
         Paragraph name = new Paragraph(student.getNome(), TITLE_FONT);
         name.setAlignment(Element.ALIGN_CENTER);
         document.add(name);
@@ -178,7 +176,7 @@ public class ResumeService {
 
         document.add(Chunk.NEWLINE);
 
-        // Contato
+      
         PdfPTable table = new PdfPTable(2);
         table.setWidthPercentage(100);
 
@@ -206,7 +204,7 @@ public class ResumeService {
         sectionTitle.setSpacingAfter(5);
         document.add(sectionTitle);
 
-        // Linha horizontal
+       
         Paragraph line = new Paragraph(new Chunk(new LineSeparator()));
         document.add(line);
     }

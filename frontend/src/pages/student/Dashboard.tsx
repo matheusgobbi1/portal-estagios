@@ -16,7 +16,6 @@ const StudentDashboard: React.FC = () => {
   const { logout } = useAuth();
   const navigate = useNavigate();
 
-  // Obter dados do usuário do localStorage uma única vez
   const user = useMemo(() => {
     const getUser = localStorage.getItem("user");
     return JSON.parse(getUser || "{}");
@@ -24,7 +23,6 @@ const StudentDashboard: React.FC = () => {
 
   const area = user.areasInteresse?.[0]?.id;
 
-  // Carrega vagas com React Query (com cache)
   const {
     data: vagas = [],
     isLoading: vagasLoading,
@@ -38,7 +36,6 @@ const StudentDashboard: React.FC = () => {
     enabled: !!area,
   });
 
-  // Carrega inscrições com React Query (com cache)
   const { data: inscricoes = [] } = useQuery({
     queryKey: ["inscricoes", user.id],
     queryFn: async () => {
@@ -50,7 +47,6 @@ const StudentDashboard: React.FC = () => {
     enabled: !!user.id,
   });
 
-  // Mutação para inscrição em vaga
   const inscreverMutation = useMutation({
     mutationFn: async (vagaId: number) => {
       return api.post("/application", {
@@ -70,7 +66,6 @@ const StudentDashboard: React.FC = () => {
     },
   });
 
-  // Handlers como callbacks para evitar recriações
   const handleLogout = useCallback(() => {
     logout();
     navigate("/login");
@@ -106,7 +101,6 @@ const StudentDashboard: React.FC = () => {
     }
   }, [user.id]);
 
-  // Renderização condicional
   if (vagasLoading) {
     return (
       <div style={styles.loadingContainer}>

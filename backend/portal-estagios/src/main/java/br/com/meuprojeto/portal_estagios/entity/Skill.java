@@ -6,9 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-/**
- * Classe que representa uma habilidade do estudante.
- */
+
 @Embeddable
 @Data
 @NoArgsConstructor
@@ -19,8 +17,8 @@ public class Skill {
     private String nome;
 
     @Column(name = "nivel")
-    private Integer nivel; // 1-5
+    private Integer nivel; 
 
     @Column(name = "categoria")
-    private String categoria; // Técnica, Comportamental, Idioma, etc.
+    private String categoria; 
 }

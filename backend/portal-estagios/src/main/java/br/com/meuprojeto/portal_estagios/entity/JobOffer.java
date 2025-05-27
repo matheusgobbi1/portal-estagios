@@ -10,9 +10,6 @@ import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Entidade que representa uma vaga de estágio no sistema.
- */
 @Entity
 @Table(name = "job_offers")
 @Data
@@ -81,17 +78,13 @@ public class JobOffer {
         this.dataAtualizacao = LocalDateTime.now();
     }
 
-    /**
-     * Encerra a vaga, definindo-a como inativa e registrando a data de encerramento
-     */
+  
     public void encerrar() {
         this.ativa = false;
         this.dataEncerramento = LocalDateTime.now();
     }
 
-    /**
-     * Enum que representa as modalidades de trabalho disponíveis
-     */
+  
     public enum Modalidade {
         PRESENCIAL,
         REMOTO,

@@ -13,7 +13,6 @@ import {
 } from "chart.js";
 import { useAuth } from "../../contexts/AuthContext";
 
-// Registrar componentes do Chart.js
 ChartJS.register(
   CategoryScale,
   LinearScale,
@@ -63,7 +62,7 @@ const AdminDashboard: React.FC = () => {
     navigate("/login");
   };
 
-  // Preparar dados para o gráfico de barras
+
   const chartData = {
     labels: dashboardData?.vagasPorArea?.map((item) => item[0]) || [],
     datasets: [

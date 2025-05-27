@@ -24,7 +24,7 @@ public class OpenApiConfig {
                                                 .contact(new Contact()
                                                                 .name("Desenvolvedor")
                                                                 .email("desenvolvedor@portalestagios.com")))
-                                // Aplica o requisito de segurança globalmente
+                                
                                 .addSecurityItem(new SecurityRequirement().addList(securitySchemeName))
                                 .components(new Components()
                                                 .addSecuritySchemes(securitySchemeName,

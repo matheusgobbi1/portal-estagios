@@ -94813,3 +94813,349 @@
         company_areas (company_id, area_id) 
     values
         (?, ?)
+2025-05-27 18:04:12.125 [http-nio-8080-exec-4] [SqlStatementLogger.java:135] DEBUG org.hibernate.SQL - 
+    /* <criteria> */ select
+        u1_0.id,
+        u1_0.user_type,
+        u1_0.data_atualizacao,
+        u1_0.data_criacao,
+        u1_0.email,
+        u1_0.nome,
+        u1_0.role,
+        u1_0.senha,
+        u1_0.telefone,
+        u1_1.cnpj,
+        u1_1.endereco,
+        u1_2.cpf,
+        u1_2.curso,
+        u1_2.data_nascimento,
+        u1_2.github,
+        u1_2.linkedin,
+        u1_2.portfolio,
+        u1_2.resumo 
+    from
+        users u1_0 
+    left join
+        companies u1_1 
+            on u1_0.id=u1_1.id 
+    left join
+        students u1_2 
+            on u1_0.id=u1_2.id 
+    where
+        u1_0.email=?
+2025-05-27 18:04:12.210 [http-nio-8080-exec-4] [SqlStatementLogger.java:135] DEBUG org.hibernate.SQL - 
+    /* <criteria> */ select
+        u1_0.id,
+        u1_0.user_type,
+        u1_0.data_atualizacao,
+        u1_0.data_criacao,
+        u1_0.email,
+        u1_0.nome,
+        u1_0.role,
+        u1_0.senha,
+        u1_0.telefone,
+        u1_1.cnpj,
+        u1_1.endereco,
+        u1_2.cpf,
+        u1_2.curso,
+        u1_2.data_nascimento,
+        u1_2.github,
+        u1_2.linkedin,
+        u1_2.portfolio,
+        u1_2.resumo 
+    from
+        users u1_0 
+    left join
+        companies u1_1 
+            on u1_0.id=u1_1.id 
+    left join
+        students u1_2 
+            on u1_0.id=u1_2.id 
+    where
+        u1_0.email=?
+2025-05-27 18:04:12.215 [http-nio-8080-exec-4] [SqlStatementLogger.java:135] DEBUG org.hibernate.SQL - 
+    select
+        ai1_0.student_id,
+        ai1_1.id,
+        ai1_1.nome 
+    from
+        student_areas ai1_0 
+    join
+        areas ai1_1 
+            on ai1_1.id=ai1_0.area_id 
+    where
+        ai1_0.student_id=?
+2025-05-27 18:04:14.692 [http-nio-8080-exec-8] [SqlStatementLogger.java:135] DEBUG org.hibernate.SQL - 
+    /* <criteria> */ select
+        u1_0.id,
+        u1_0.user_type,
+        u1_0.data_atualizacao,
+        u1_0.data_criacao,
+        u1_0.email,
+        u1_0.nome,
+        u1_0.role,
+        u1_0.senha,
+        u1_0.telefone,
+        u1_1.cnpj,
+        u1_1.endereco,
+        u1_2.cpf,
+        u1_2.curso,
+        u1_2.data_nascimento,
+        u1_2.github,
+        u1_2.linkedin,
+        u1_2.portfolio,
+        u1_2.resumo 
+    from
+        users u1_0 
+    left join
+        companies u1_1 
+            on u1_0.id=u1_1.id 
+    left join
+        students u1_2 
+            on u1_0.id=u1_2.id 
+    where
+        u1_0.email=?
+2025-05-27 18:04:14.692 [http-nio-8080-exec-7] [SqlStatementLogger.java:135] DEBUG org.hibernate.SQL - 
+    /* <criteria> */ select
+        u1_0.id,
+        u1_0.user_type,
+        u1_0.data_atualizacao,
+        u1_0.data_criacao,
+        u1_0.email,
+        u1_0.nome,
+        u1_0.role,
+        u1_0.senha,
+        u1_0.telefone,
+        u1_1.cnpj,
+        u1_1.endereco,
+        u1_2.cpf,
+        u1_2.curso,
+        u1_2.data_nascimento,
+        u1_2.github,
+        u1_2.linkedin,
+        u1_2.portfolio,
+        u1_2.resumo 
+    from
+        users u1_0 
+    left join
+        companies u1_1 
+            on u1_0.id=u1_1.id 
+    left join
+        students u1_2 
+            on u1_0.id=u1_2.id 
+    where
+        u1_0.email=?
+2025-05-27 18:04:14.700 [http-nio-8080-exec-7] [SqlStatementLogger.java:135] DEBUG org.hibernate.SQL - 
+    select
+        a1_0.id,
+        a1_0.nome 
+    from
+        areas a1_0 
+    where
+        a1_0.id=?
+2025-05-27 18:04:14.699 [http-nio-8080-exec-8] [SqlStatementLogger.java:135] DEBUG org.hibernate.SQL - 
+    select
+        s1_0.id,
+        s1_1.data_atualizacao,
+        s1_1.data_criacao,
+        s1_1.email,
+        s1_1.nome,
+        s1_1.role,
+        s1_1.senha,
+        s1_1.telefone,
+        s1_0.cpf,
+        s1_0.curso,
+        s1_0.data_nascimento,
+        s1_0.github,
+        s1_0.linkedin,
+        s1_0.portfolio,
+        s1_0.resumo 
+    from
+        students s1_0 
+    join
+        users s1_1 
+            on s1_0.id=s1_1.id 
+    where
+        s1_0.id=?
+2025-05-27 18:04:14.704 [http-nio-8080-exec-8] [SqlStatementLogger.java:135] DEBUG org.hibernate.SQL - 
+    /* <criteria> */ select
+        a1_0.id,
+        a1_0.data_inscricao,
+        a1_0.job_offer_id,
+        a1_0.status,
+        a1_0.student_id 
+    from
+        applications a1_0 
+    where
+        a1_0.student_id=?
+2025-05-27 18:04:14.704 [http-nio-8080-exec-7] [SqlStatementLogger.java:135] DEBUG org.hibernate.SQL - 
+    /* <criteria> */ select
+        jo1_0.id,
+        jo1_0.area_id,
+        jo1_0.ativa,
+        jo1_0.carga_horaria,
+        jo1_0.company_id,
+        jo1_0.data_atualizacao,
+        jo1_0.data_criacao,
+        jo1_0.data_encerramento,
+        jo1_0.descricao,
+        jo1_0.localizacao,
+        jo1_0.modalidade,
+        jo1_0.requisitos,
+        jo1_0.titulo 
+    from
+        job_offers jo1_0 
+    where
+        jo1_0.area_id=? 
+        and jo1_0.ativa
+2025-05-27 18:04:14.706 [http-nio-8080-exec-8] [SqlStatementLogger.java:135] DEBUG org.hibernate.SQL - 
+    select
+        jo1_0.id,
+        jo1_0.area_id,
+        a1_0.id,
+        a1_0.nome,
+        jo1_0.ativa,
+        jo1_0.carga_horaria,
+        jo1_0.company_id,
+        c1_0.id,
+        c1_1.data_atualizacao,
+        c1_1.data_criacao,
+        c1_1.email,
+        c1_1.nome,
+        c1_1.role,
+        c1_1.senha,
+        c1_1.telefone,
+        c1_0.cnpj,
+        c1_0.endereco,
+        jo1_0.data_atualizacao,
+        jo1_0.data_criacao,
+        jo1_0.data_encerramento,
+        jo1_0.descricao,
+        jo1_0.localizacao,
+        jo1_0.modalidade,
+        jo1_0.requisitos,
+        jo1_0.titulo 
+    from
+        job_offers jo1_0 
+    join
+        areas a1_0 
+            on a1_0.id=jo1_0.area_id 
+    join
+        companies c1_0 
+            on c1_0.id=jo1_0.company_id 
+    join
+        users c1_1 
+            on c1_0.id=c1_1.id 
+    where
+        jo1_0.id=?
+2025-05-27 18:04:14.707 [http-nio-8080-exec-7] [SqlStatementLogger.java:135] DEBUG org.hibernate.SQL - 
+    select
+        c1_0.id,
+        c1_1.data_atualizacao,
+        c1_1.data_criacao,
+        c1_1.email,
+        c1_1.nome,
+        c1_1.role,
+        c1_1.senha,
+        c1_1.telefone,
+        c1_0.cnpj,
+        c1_0.endereco 
+    from
+        companies c1_0 
+    join
+        users c1_1 
+            on c1_0.id=c1_1.id 
+    where
+        c1_0.id=?
+2025-05-27 18:04:14.717 [http-nio-8080-exec-7] [SqlStatementLogger.java:135] DEBUG org.hibernate.SQL - 
+    select
+        aa1_0.company_id,
+        aa1_1.id,
+        aa1_1.nome 
+    from
+        company_areas aa1_0 
+    join
+        areas aa1_1 
+            on aa1_1.id=aa1_0.area_id 
+    where
+        aa1_0.company_id=?
+2025-05-27 18:04:14.720 [http-nio-8080-exec-7] [SqlStatementLogger.java:135] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.company_id,
+        v1_0.id,
+        v1_0.area_id,
+        a1_0.id,
+        a1_0.nome,
+        v1_0.ativa,
+        v1_0.carga_horaria,
+        v1_0.data_atualizacao,
+        v1_0.data_criacao,
+        v1_0.data_encerramento,
+        v1_0.descricao,
+        v1_0.localizacao,
+        v1_0.modalidade,
+        v1_0.requisitos,
+        v1_0.titulo 
+    from
+        job_offers v1_0 
+    left join
+        areas a1_0 
+            on a1_0.id=v1_0.area_id 
+    where
+        v1_0.company_id=?
+2025-05-27 18:04:14.722 [http-nio-8080-exec-7] [SqlStatementLogger.java:135] DEBUG org.hibernate.SQL - 
+    select
+        v1_0.company_id,
+        v1_0.id,
+        v1_0.area_id,
+        a1_0.id,
+        a1_0.nome,
+        v1_0.ativa,
+        v1_0.carga_horaria,
+        v1_0.data_atualizacao,
+        v1_0.data_criacao,
+        v1_0.data_encerramento,
+        v1_0.descricao,
+        v1_0.localizacao,
+        v1_0.modalidade,
+        v1_0.requisitos,
+        v1_0.titulo 
+    from
+        job_offers v1_0 
+    left join
+        areas a1_0 
+            on a1_0.id=v1_0.area_id 
+    where
+        v1_0.company_id=?
+2025-05-27 18:04:14.725 [http-nio-8080-exec-7] [SqlStatementLogger.java:135] DEBUG org.hibernate.SQL - 
+    select
+        i1_0.job_offer_id,
+        i1_0.id,
+        i1_0.data_inscricao,
+        i1_0.status,
+        i1_0.student_id,
+        s1_0.id,
+        s1_1.data_atualizacao,
+        s1_1.data_criacao,
+        s1_1.email,
+        s1_1.nome,
+        s1_1.role,
+        s1_1.senha,
+        s1_1.telefone,
+        s1_0.cpf,
+        s1_0.curso,
+        s1_0.data_nascimento,
+        s1_0.github,
+        s1_0.linkedin,
+        s1_0.portfolio,
+        s1_0.resumo 
+    from
+        applications i1_0 
+    left join
+        students s1_0 
+            on s1_0.id=i1_0.student_id 
+    left join
+        users s1_1 
+            on s1_0.id=s1_1.id 
+    where
+        i1_0.job_offer_id=?

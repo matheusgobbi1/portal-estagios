@@ -11,9 +11,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-/**
- * Entidade que representa um estudante no sistema.
- */
+
 @Entity
 @Table(name = "students")
 @DiscriminatorValue("STUDENT")

@@ -46,5 +46,4 @@ const VagaCard: React.FC<VagaCardProps> = ({ vaga, inscrito, onInscrever }) => {
   );
 };
 
-// Memo evita re-renderizações desnecessárias
 export default memo(VagaCard);

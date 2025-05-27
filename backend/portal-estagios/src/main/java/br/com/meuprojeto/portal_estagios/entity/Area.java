@@ -4,9 +4,7 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
 
-/**
- * Entidade que representa uma área de atuação/interesse para vagas de estágio.
- */
+
 @Entity
 @Table(name = "areas")
 @Data

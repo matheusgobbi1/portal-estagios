@@ -10,9 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 import java.util.Optional;
 
-/**
- * Serviço que contém as regras de negócio relacionadas à entidade Area.
- */
+
 @Service
 @RequiredArgsConstructor
 public class AreaService {

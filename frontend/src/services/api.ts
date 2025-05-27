@@ -2,7 +2,6 @@ import axios from "axios";
 
 const API_BASE_URL = "http://localhost:8080/api";
 
-// Variável para controlar tentativas de redirecionamento
 let isRedirecting = false;
 
 const api = axios.create({
@@ -12,11 +11,11 @@ const api = axios.create({
   },
 });
 
-// Cache para requisições GET
-const cache = new Map();
-const CACHE_DURATION = 5 * 60 * 1000; // 5 minutos
 
-// Interceptor para adicionar o token e gerenciar cache
+const cache = new Map();
+const CACHE_DURATION = 5 * 60 * 1000; 
+
+
 api.interceptors.request.use(
   (config) => {
     const token = localStorage.getItem("token");
@@ -31,7 +30,6 @@ api.interceptors.request.use(
       console.log("Atenção: Requisição sem token de autenticação");
     }
 
-    // Implementar cache apenas para requisições GET
     if (config.method === "get") {
       const cacheKey = `${config.url}${JSON.stringify(config.params || {})}`;
       const cachedResponse = cache.get(cacheKey);
@@ -55,10 +53,10 @@ api.interceptors.request.use(
   }
 );
 
-// Interceptor para tratar respostas e cache
+
 api.interceptors.response.use(
   (response) => {
-    // Armazenar em cache apenas respostas GET bem-sucedidas
+    
     if (response.config.method === "get") {
       const cacheKey = `${response.config.url}${JSON.stringify(
         response.config.params || {}
@@ -82,15 +80,15 @@ api.interceptors.response.use(
     );
 
     if (error.response) {
-      // Tratar conforme o código de status
+      
 
       console.log("Error:", error);
-      //TODO
+
       return;
       switch (error.response.status) {
         case 401:
           console.log("Erro de autenticação (401). Redirecionando para login.");
-          // Evitar redirecionamento múltiplo e em páginas específicas
+          
           if (
             !isRedirecting &&
             !window.location.pathname.includes("/login") &&
@@ -98,11 +96,11 @@ api.interceptors.response.use(
           ) {
             isRedirecting = true;
 
-            // Limpar dados de autenticação
+            
             localStorage.removeItem("token");
             localStorage.removeItem("user");
 
-            // Redirecionamento com um pequeno delay para evitar problemas
+          
             setTimeout(() => {
               window.location.href = "/login";
               isRedirecting = false;

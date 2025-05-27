@@ -7,10 +7,7 @@ import lombok.Data;
 
 import java.time.LocalDateTime;
 
-/**
- * Classe base para os diferentes tipos de usuários do sistema.
- * Implementa herança com estratégia JOINED.
- */
+
 @Entity
 @Table(name = "users")
 @Inheritance(strategy = InheritanceType.JOINED)
@@ -59,9 +56,7 @@ public abstract class User {
         this.dataAtualizacao = LocalDateTime.now();
     }
 
-    /**
-     * Enum que representa os perfis de usuário no sistema
-     */
+   
     public enum Role {
         ADMIN,
         COMPANY,

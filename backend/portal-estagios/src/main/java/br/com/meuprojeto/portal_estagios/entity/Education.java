@@ -8,9 +8,7 @@ import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
 
-/**
- * Classe que representa a formação acadêmica de um estudante.
- */
+
 @Embeddable
 @Data
 @NoArgsConstructor
@@ -24,7 +22,7 @@ public class Education {
     private String curso;
 
     @Column(name = "nivel")
-    private String nivel; // Graduação, Pós-graduação, Mestrado, etc.
+    private String nivel; 
 
     @Column(name = "data_inicio")
     private LocalDate dataInicio;

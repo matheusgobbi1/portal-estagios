@@ -7,9 +7,6 @@ import jakarta.persistence.Table;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
-/**
- * Entidade que representa um administrador do sistema.
- */
 @Entity
 @Table(name = "admins")
 @DiscriminatorValue("ADMIN")
