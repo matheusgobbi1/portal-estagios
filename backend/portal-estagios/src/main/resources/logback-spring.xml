@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <!-- Appender para o arquivo de queries SQL -->
+    <appender name="SQL_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>logs/sql-queries.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>logs/sql-queries.%d{yyyy-MM-dd}.log</fileNamePattern>
+            <maxHistory>30</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] [%file:%line] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- Appender para o arquivo de rotas -->
+    <appender name="ROUTES_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>logs/routes.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>logs/routes.%d{yyyy-MM-dd}.log</fileNamePattern>
+            <maxHistory>30</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] [%file:%line] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- Logger específico para queries SQL -->
+    <logger name="org.hibernate.SQL" level="DEBUG" additivity="false">
+        <appender-ref ref="SQL_FILE"/>
+    </logger>
+    
+    <!-- Logger para mostrar os valores dos parâmetros -->
+    <logger name="org.hibernate.type.descriptor.sql" level="TRACE" additivity="false">
+        <appender-ref ref="SQL_FILE"/>
+    </logger>
+    
+    <!-- Logger para mostrar os valores dos parâmetros em formato legível -->
+    <logger name="org.hibernate.type.descriptor.sql.BasicBinder" level="TRACE" additivity="false">
+        <appender-ref ref="SQL_FILE"/>
+    </logger>
+
+    <!-- Logger para todas as rotas da aplicação -->
+    <logger name="org.springframework.web" level="DEBUG" additivity="false">
+        <appender-ref ref="ROUTES_FILE"/>
+    </logger>
+
+    <!-- Logger para os controllers -->
+    <logger name="br.com.meuprojeto.portal_estagios.controller" level="DEBUG" additivity="false">
+        <appender-ref ref="ROUTES_FILE"/>
+    </logger>
+
+    <!-- Logger para o interceptor de requisições -->
+    <logger name="br.com.meuprojeto.portal_estagios.config.RequestLoggingInterceptor" level="DEBUG" additivity="false">
+        <appender-ref ref="ROUTES_FILE"/>
+    </logger>
+
+    <!-- Root logger -->
+    <root level="INFO">
+        <appender-ref ref="CONSOLE"/>
+    </root>
+</configuration> 
